@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pychoam"
+version = "0.1.0"
+description = "Event-driven trading system for Interactive Brokers"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "OpenAI", email = "openai@example.com"}]
+dependencies = [
+    "ib-insync",
+    "pandas",
+    "numpy",
+    "pyyaml",
+    "rich",
+    "typer",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "pylint"]
+
+[project.scripts]
+pychoam = "pychoam.cli:app"
+
+[tool.ruff]
+line-length = 100
+
+[tool.pylint.messages_control]
+disable = ["missing-module-docstring", "missing-function-docstring", "missing-class-docstring", "disallowed-name", "unused-argument", "no-member", "too-few-public-methods", "abstract-method"]
